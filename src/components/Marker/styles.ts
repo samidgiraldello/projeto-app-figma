@@ -1,5 +1,5 @@
-import { StylesSheet } from 'react-native';
-import  { colors } from '../../styles/colors';
+
+import  { colors import { StylesSheet } from 'react-native';} from '../../styles/colors';
 
 export const styles = StylesSheet.create({
     ball: {
