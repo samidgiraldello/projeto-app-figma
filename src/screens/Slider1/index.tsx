@@ -1,7 +1,8 @@
-import { FlatList, ImageBackground, View } from 'react-native';
+import React from 'react';
+import { FlatList, ImageBackground, View, Text } from 'react-native';
 import { IPage} from '../../../App';
 import {
-    ComponenetButtonSlider, ComponentListMarker, ComponemtTitleSlider
+    ComponentButtonSlider, ComponentListMarker, ComponentTitleSlider
 } from '../../components';
 import { styles } from './styles';
 export function Slider1({ setPageI}: IPage) {
@@ -14,21 +15,21 @@ export function Slider1({ setPageI}: IPage) {
     return (
         <ImageBackground source={slide1} style={styles.container} >
             <View style={styles.panel}>
-              <ComponemtTitleSlider titleI='PRÓXIMO DESTINO' />
-               <ComponemtTitleSlider titleI='pesquise aqui seu destino' />
+              <ComponentTitleSlider titleI='PRÓXIMO DESTINO' />
+               <ComponentTitleSlider titleI='pesquise aqui seu destino' />
                 <FlatList
-
-
-
-
+                 data={slide1Texts}
+                 renderItem={({item})=> 
+                    <ComponentListMarker key={item.id} textMarker={item.text} />
+                }
                 />
             </View>
             <View style={styles.buttonSlider}>
-                <ComponenetButtonSlider onPressI={() => setPageI(1)}  />
-                <ComponenetButtonSlider onPressI={() => setPageI(2)}  />
-                <ComponenetButtonSlider onPressI={() => setPageI(3)}  />
-                <ComponenetButtonSlider onPressI={() => setPageI(4)}  />
+                <ComponentButtonSlider  onPressI={() => setPageI(1)}  />
+                <ComponentButtonSlider  onPressI={() => setPageI(2)}  />
+                <ComponentButtonSlider  onPressI={() => setPageI(3)}  />
+                <ComponentButtonSlider onPressI={() => setPageI(4)}  />
             </View>
-            <ImageBackground>
+            </ImageBackground>
     );                         
 }

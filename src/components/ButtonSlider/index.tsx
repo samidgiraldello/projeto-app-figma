@@ -5,6 +5,6 @@ export interface IBSlider {
 }
 export function ButtonSlider({ onPressI }: IBSlider) {
     return (
-        <TouchableOpacity sytle={styles.ball} onPress={onPressI} />
+        <TouchableOpacity style={styles.ball} onPress={onPressI} />
         )
 }

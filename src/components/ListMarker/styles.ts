@@ -1,6 +1,6 @@
-import { StylesSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-export const styles = StylesSheet.create({
+export const styles = StyleSheet.create({
     listMarker:{
         margin: 10,
         marginTop: 60,
