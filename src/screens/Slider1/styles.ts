@@ -6,9 +6,9 @@ export const styles =  StyleSheet.create({
     },
     panel: {
         flex: 1,
-        marginTop: 40,
-        margin: 20,
-        borderRadius: 20,
+        marginTop: 50,
+        margin: 30,
+        borderRadius: 30,
         backgroundColor: colors.thirdLigth
     },
     buttonSlider: {

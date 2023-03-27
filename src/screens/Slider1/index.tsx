@@ -6,7 +6,7 @@ import {
 } from '../../components';
 import { styles } from './styles';
 export function Slider1({ setPageI}: IPage) {
-    const slide1 = require("../../assets/slide1.svg")
+    const slide1 = require("../../assets/slider1.png")
     const slide1Texts = [
         { id: '1', text: 'PRAIAS'},
         { id: '2', text: 'PARQUES'},
@@ -16,7 +16,6 @@ export function Slider1({ setPageI}: IPage) {
         <ImageBackground source={slide1} style={styles.container} >
             <View style={styles.panel}>
               <ComponentTitleSlider titleI='PRÓXIMO DESTINO' />
-               <ComponentTitleSlider titleI='pesquise aqui seu destino' />
                 <FlatList
                  data={slide1Texts}
                  renderItem={({item})=> 

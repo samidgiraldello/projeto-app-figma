@@ -6,7 +6,7 @@ import {
 } from '../../components';
 import { styles } from './styles';
 export function Slider3({ setPageI}: IPage) {
-    const slide1 = require("../../assets/slider3.svg")
+    const slide1 = require("../../assets/slider3.png")
     const slide1Texts = [
         { id: '1', text: 'Adicionar destinos favoritos'},
         { id: '2', text: 'Adicionar hotéis favoritos'},
