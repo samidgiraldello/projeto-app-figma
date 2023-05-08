@@ -6,3 +6,4 @@ export { Login as ScreenLogin } from "./Login"
 export { Cadastrar as ScreenCadastrar } from "./Cadastrar"
 export { Perfil as ScreenPerfil} from "./Perfil"
 
+
