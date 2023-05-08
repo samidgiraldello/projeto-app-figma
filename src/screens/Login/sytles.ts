@@ -17,7 +17,7 @@ export const styles =  StyleSheet.create({
        borderColor: colors.black,
        borderRadius: 5,
        flexDirection: "row",
-       alignItems: "center0",
+       alignItems: "center",
        margin: 10
 
     },
