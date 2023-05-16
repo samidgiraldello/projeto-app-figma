@@ -43,9 +43,9 @@ export function CameraScreen() {
   
   return (
     <View style={styles.container}>
-      <ComponentButtonInterface title='Flip' type='secondary' onPressI={toggleCameraType}/>
+      <ComponentButtonInterface title='Flip' type='primary' onPressI={toggleCameraType}/>
       <Camera style={styles.camera} type={type} ref={ref} />
-      <ComponentButtonInterface title='Foto' type='secondary' onPressI={takePicture} />
+      <ComponentButtonInterface title='Foto' type='primary' onPressI={takePicture} />
       {photo && photo.uri && (
         <Image source={{  uri: photo.uri }} style={styles.img} />
       )}

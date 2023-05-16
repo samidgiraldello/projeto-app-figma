@@ -1,10 +1,8 @@
-import {StyleSheet, Dimensions} from "react-native";
-
- export const styles = StyleSheet.create({
+import {StyleSheet, Dimensions} from 'react-native'
+    export const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
-      
     },
     camera: {
       flex: 1,
@@ -26,8 +24,8 @@ import {StyleSheet, Dimensions} from "react-native";
       color: 'white',
     },
     img: {
-      width: Dimensions.get('window').width *0.7,
-      height: Dimensions.get('window').width *0.7,
+      widht: Dimensions.get('window').width *0.7,
+      height: Dimensions.get('window').width *0.7
     }
   });
   
