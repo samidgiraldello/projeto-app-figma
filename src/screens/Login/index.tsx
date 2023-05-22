@@ -1,7 +1,7 @@
 import React from "react";
 import { View, KeyboardAvoidingView, Text }from "react-native";
 import { styles } from "./sytles";
- import { Entypo, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'; 
+import { Entypo, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'; 
 import { TextInput } from "react-native-gesture-handler";
 import { colors } from "../../styles/colors";
 import { ComponentButtonInterface } from "../../components";
