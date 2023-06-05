@@ -23,7 +23,7 @@ export function CameraScreen() {
   const ref = useRef<Camera>(null)
   const [takePhoto, setTakePhoto] = useState(false)
   const [permissionQrCode, requestPermissionQrCode] = BarCodeScanner.usePermissions();
-  const [ scanned, setScanned] = useState(false);
+  const [scanned, setScanned] = useState(false);
   const [face, setFace] = useState<FaceDetector.FaceFeature>()
 
   if (!permission || !permissionMedia || !permissionQrCode) {
@@ -40,7 +40,7 @@ export function CameraScreen() {
       </View>
     );
   }
-  
+
   if (!permissionMedia.granted) {
     // Camera permissions are not granted yet
     return (
@@ -77,12 +77,12 @@ export function CameraScreen() {
       setPhoto(result.assets[0])
     }
   }
-  const handleBarCodeScanned = ({ type, data} : BarCodeScannerResult) => {
+  const handleBarCodeScanned = ({ type, data }: BarCodeScannerResult) => {
     setScanned(true);
     alert(data);
   }
-  const handleFacesDetected = ({ faces }: FaceDetectionResult) : void => {
-    if(faces.length > 0) {
+  const handleFacesDetected = ({ faces }: FaceDetectionResult): void => {
+    if (faces.length > 0) {
       const faceDetect = faces[0] as FaceDetector.FaceFeature
       setFace(faceDetect)
       //console.log(faceDetect)
@@ -90,24 +90,13 @@ export function CameraScreen() {
       setFace(undefined)
     }
   };
-  return(
-  <>
+  return (
+    <>
       {takePhoto ? (
         <>
-        <Camera style={styles.camera} ref={ref}
-          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} 
-          onFacesDetected={handleFacesDetected}
-          faceDetectorSettings={{
-            mode: FaceDetector.FaceDetectorMode.accurate,
-            detecLandmarks: FaceDetector.FaceDetectorLandmarks.all,
-            runClassifications: FaceDetector.FaceDetectorClassifications.all,
-            minDetectionInterval: 1000,
-            tracking: true,
-          }}
-          >
           <View style={styles.sorriso}>
-            {face && face.smilingProbability && face.smilingProbability> 0.5 ? (
-               <Text>Sorrindo</Text>
+            {face && face.smilingProbability && face.smilingProbability > 0.5 ? (
+              <Text>Sorrindo</Text>
             ) : (
               <Text>Não</Text>
             )}
@@ -115,18 +104,28 @@ export function CameraScreen() {
           <TouchableOpacity onPress={toggleCameraType} style={styles.button}>
             <Entypo name="cycle" size={20} color="black" />
           </TouchableOpacity>
-        
-        </Camera>
-        <ComponentButtonInterface title="Tirar Foto" type="secondary" onPressI={takePicture} />
+          <Camera style={styles.camera} ref={ref} type={type}
+            onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+            onFacesDetected={handleFacesDetected}
+            faceDetectorSettings={{
+              mode: FaceDetector.FaceDetectorMode.accurate,
+              detecLandmarks: FaceDetector.FaceDetectorLandmarks.all,
+              runClassifications: FaceDetector.FaceDetectorClassifications.all,
+              minDetectionInterval: 1000,
+              tracking: true,
+            }}
+          >
+          </Camera>
+          <ComponentButtonInterface title="Tirar Foto" type="secondary" onPressI={takePicture} />
         </>
       ) : (
         <>
-          <ComponentButtonInterface title="Tirar Foto" type="secondary" onPressI={()=> setTakePhoto(true)} />
-          { photo && photo.uri && (
-             <>
-             <Image source={{ uri: photo.uri }} style={styles.img} />
-             <ComponentButtonInterface title="Salvar Imagem" type="secondary" onPressI={savePhoto} />
-             </>
+          <ComponentButtonInterface title="Tirar Foto" type="secondary" onPressI={() => setTakePhoto(true)} />
+          {photo && photo.uri && (
+            <>
+              <Image source={{ uri: photo.uri }} style={styles.img} />
+              <ComponentButtonInterface title="Salvar Imagem" type="secondary" onPressI={savePhoto} />
+            </>
           )}
           <ComponentButtonInterface title="Abrir Imagem" type="secondary" onPressI={pickImage} />
         </>
