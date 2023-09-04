@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { View, KeyboardAvoidingView, Text } from "react-native";
+import { View, KeyboardAvoidingView, Text, Alert } from "react-native";
 import { styles } from './styles';
 import { Entypo, MaterialCommunityIcons, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 import { TextInput } from "react-native-gesture-handler";
@@ -34,10 +34,10 @@ export function Cadastrar({ navigation }: LoginTypes) {
       }
     } catch (error) {
       const er = error as AxiosError
-      const erroData = err.response?.data as IErrorApi
+      const errorData = error.response?.data as IErrorApi
       let message = ""
       if (errorData) {
-        for (const iterator of erroData.erros) {
+        for (const iterator of errorData.erros) {
           message = `${message} ${iterator.message} \n`
         }
       }
@@ -62,7 +62,7 @@ export function Cadastrar({ navigation }: LoginTypes) {
             <View style={styles.formRow}>
               <FontAwesome5 name="nome" style={styles.icon} />
               <TextInput
-                placeholder="name"
+                placeholder="nome"
                 placeholderTextColor={colors.black}
                 keyboardType="default"
                 autoCapitalize="none"
