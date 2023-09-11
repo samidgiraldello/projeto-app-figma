@@ -26,9 +26,12 @@ export default function App() {
       return <ScreenSlider4 setPageI={setPage} />
       break;
     default:
-      <AuthProvider>
-        <Navigation />
-      </AuthProvider>
+      return (
+        <AuthProvider>
+          <Navigation />
+        </AuthProvider>
+
+      )
 
   }
 }

@@ -4,7 +4,7 @@ import React, {
 import { apiUser } from "../services/data";
 import { api } from "../services/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { IAuthenticate, IUserLogin } from "../services/data/User";
+import User, { IAuthenticate, IUserLogin } from "../services/data/User";
 import { isAfter, parseISO } from "date-fns";
 export interface IAuthContextData {
     singIn(credentials: IAuthenticate): Promise<void>
@@ -24,6 +24,7 @@ const AuthProvider = ({ children }: IProvider ) => {
             password,
         });
         const user = response.data;
+        console.log(user)
         api.defaults.headers.common.Authorization = `Bearer ${user.token.token}`;
         setAuth({...user});
         await AsyncStorage.setItem("user", JSON.stringify(user))
