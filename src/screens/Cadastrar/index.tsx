@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, KeyboardAvoidingView, Text, Alert }from "react-native";
 import { styles } from './styles';
-import { Entypo, MaterialCommunityIcons, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
+import { Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { TextInput } from "react-native-gesture-handler";
 import { colors } from "../../styles/colors";
 import {ComponentButtonInterface, ComponentLoading} from "../../components"
@@ -61,7 +61,7 @@ export function Cadastrar({navigation}: LoginTypes) {
               <Text style={styles.title}>Cadastre-se</Text>
              
               <View style={styles.formRow}>
-                <FontAwesome5 name="nome" style={styles.icon} />
+              <Ionicons name="person" size={24} style={styles.icon} />
                 <TextInput
                     placeholder="name"
                     placeholderTextColor={colors.black}
