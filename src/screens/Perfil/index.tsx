@@ -16,11 +16,10 @@ Notification.setNotificationHandler({
     })
 });
 export function Perfil({navigation}:TabTypes){
-    const { user } = useAuth();
+    const { user, singOut } = useAuth();
     const[isLoading, setIsLoading] = useState(true);
-    function handleVoltar(){
-        const login = navigation.getParent()
-        login?.goBack()
+    async function handleVoltar(){
+        await singOut()
     }
     useEffect(() => {
         if (user) {
