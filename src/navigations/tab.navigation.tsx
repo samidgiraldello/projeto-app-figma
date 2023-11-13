@@ -47,6 +47,13 @@ export type TabTypes = {
         )
       }}
       />
+      <Tab.Screen name="Acelerometro" component={ScreenLocation}
+      options={{
+        tabBarIcon: () => (
+          <AntDesign name="car" size={24} color="black" />
+        )
+      }}
+      />
     </Tab.Navigator>
   )
 }
